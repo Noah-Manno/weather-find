@@ -16,7 +16,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    max-height: 100vh;
     overflow: hidden;
 }
 
@@ -83,13 +83,56 @@ body {
     margin: 0;
 }
 
-.row {
-    --bs-gutter-x: 0;
-    --bs-gutter-y: 0;
-}
-
 .bg-light {
     background-color: var(--colorlight);
     min-height: 20vh;
-    border-radius: 36px;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.line {
+    min-height: 2px;
+    width: 40px;
+    color: black;
+    background-color: black;
+    border: none;
+    margin-top: 20px;
+}
+
+.bottom-title-date {
+    border-bottom: 1px solid black;
+    padding-right: 20%;
+    padding-left: 20%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.bottom-city-name {
+    font-size: 25px;
+}
+
+.wind-card {
+    border-right: 1px solid black;
+    border-radius: 0px;
+}
+.humidity-card {
+    border-left: .5px solid black;
+    border-radius: 0px;
+}
+
+.wind-speed,
+.humidity-percentage {
+    font-size: 45px;
+}
+
+.bottom-wind-title,
+.bottom-humidity-title {
+    font-size: 20px;
 }
