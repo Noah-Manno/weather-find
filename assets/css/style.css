@@ -7,6 +7,7 @@
 
 body {
     background-color: var(--color1);
+    overflow: hidden;
 }
 
 .body {
@@ -16,12 +17,11 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 100vh;
-    overflow: hidden;
+    height: 100vh;
 }
 
 main {
-    max-width: 1567px;
+    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -92,7 +92,6 @@ main {
 
 .bg-light {
     background-color: var(--colorlight);
-    min-height: 20vh;
     border-top-left-radius: 36px;
     border-top-right-radius: 36px;
     display: flex;
@@ -100,8 +99,20 @@ main {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    position: sticky;
-    top: 0;
+    position: absolute;
+    bottom: -90vh;
+    width: 100vw;
+    left: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .bg-light {
+        width: 100%;
+        max-width: 1024px;
+        left: 50%;
+        margin-left: -512px;
+    }
+    
 }
 
 .line {
