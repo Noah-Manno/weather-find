@@ -1,0 +1,95 @@
+:root {
+    --font1: "Roboto Condensed", sans-serif;
+    --color1: #1a6592;
+    --color2: #5687a5;
+    --colorlight: white;
+}
+
+body {
+    background-color: var(--color1);
+}
+
+.body {
+    color: var(--colorlight);
+    font-family: var(--font1);
+    background-image: linear-gradient(var(--color1), var(--color2));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.navbar-brand {
+    color: var(--colorlight);
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+    color: var(--colorlight);
+    font-weight: 400;
+}
+
+.city-name {
+    font-size: 20px;
+}
+
+.degrees {
+    font-size: 50px;
+}
+
+.current-weather-icon {
+    width: 100%;
+    height: auto;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+}
+
+.five-day-cards {
+    border: 1px solid gray;
+    border-radius: 16px;
+}
+
+.five-day-icons {
+    width: 100%;
+    height: auto;
+}
+
+.five-day-date {
+    font-size: 13px;
+}
+.five-day-degrees {
+    font-size: 14px;
+}
+
+.list-group-item {
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.bg-light {
+    background-color: var(--colorlight);
+    min-height: 20vh;
+    border-radius: 36px;
+}
