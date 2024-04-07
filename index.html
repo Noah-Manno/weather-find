@@ -26,7 +26,7 @@
 <!-- SEARCH INPUT -->
           <form id="searchCityForm"class="d-flex" role="search">
             <input id="searchCity" class="form-control me-2" type="search" placeholder="City" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
+            <button class="btn btn-outline-light" type="submit">Forecast!</button>
           </form>
         </div>
       </nav>
@@ -57,45 +57,45 @@
     <li class="list-group-item col-3 col-sm-2 text-center m-2">
         <div class="card five-day-cards">
             <div class="card-body">
-              <img class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
-              <h5 class="five-day-date card-title">Date</h5>
-              <p class="five-day-degrees card-text degrees">Deg°F</p>
+              <img id="one-icon" class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
+              <h5 id="one-date" class="five-day-date card-title">Date</h5>
+              <p id="one-temp" class="five-day-degrees card-text degrees">Deg°F</p>
             </div>
           </div>
     </li>
     <li class="list-group-item col-3 col-sm-2 text-center m-2">
         <div class="card five-day-cards">
             <div class="card-body">
-              <img class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
-              <h5 class="five-day-date card-title">Date</h5>
-              <p class="five-day-degrees card-text degrees">Deg°F</p>
+              <img id="two-icon"class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
+              <h5 id="two-date"class="five-day-date card-title">Date</h5>
+              <p id="two-temp" class="five-day-degrees card-text degrees">Deg°F</p>
             </div>
           </div>
     </li>
     <li class="list-group-item col-3 col-sm-2 text-center m-2">
         <div class="card five-day-cards">
             <div class="card-body">
-              <img class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
-              <h5 class="five-day-date card-title">Date</h5>
-              <p class="five-day-degrees card-text degrees">Deg°F</p>
+              <img id="three-icon"class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
+              <h5 id="three-date"class="five-day-date card-title">Date</h5>
+              <p id="three-temp" class="five-day-degrees card-text degrees">Deg°F</p>
             </div>
           </div>
     </li>
     <li class="list-group-item col-3 col-sm-2 text-center m-2">
         <div class="card five-day-cards">
             <div class="card-body">
-              <img class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
-              <h5 class="five-day-date card-title">Date</h5>
-              <p class="five-day-degrees card-text degrees">Deg°F</p>
+              <img id="four-icon"class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
+              <h5 id="four-date"class="five-day-date card-title">Date</h5>
+              <p id="four-temp" class="five-day-degrees card-text degrees">Deg°F</p>
             </div>
           </div>
     </li>
     <li class="list-group-item col-3 col-sm-2 text-center m-2">
         <div class="card five-day-cards">
             <div class="card-body">
-              <img class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
-              <h5 class="five-day-date card-title">Date</h5>
-              <p class="five-day-degrees card-text degrees">Deg°F</p>
+              <img id="five-icon"class="five-day-icons" src="./assets/images/WeatherIcon.png" alt="weather icon">
+              <h5 id="five-date"class="five-day-date card-title">Date</h5>
+              <p id="five-temp" class="five-day-degrees card-text degrees">Deg°F</p>
             </div>
           </div>
     </li>
@@ -110,8 +110,8 @@
 <!-- CITY TITLE AND DATE -->
 <div class=" col-12 card text-center text-dark">
   <div class="card-body bottom-title-date">
-    <h5 class="card-title bottom-city-name">City Name</h5>
-    <p class="card-text bottom-date">1/1/1111</p>
+    <h5 id="bottomCityName" class="card-title bottom-city-name"></h5>
+    <p id="bottomDate" class="card-text bottom-date"></p>
   </div>
 </div>
 
@@ -122,7 +122,7 @@
 <div class="col-6 card text-dark text-center wind-card">
   <img src="./assets/images/windicon.png" class="card-img" alt="wind icon">
   <div class="card-img-overlay d-flex flex-column justify-content-around">
-    <p class="card-text wind-speed">20 Mph</p>
+    <p id="windSpeed" class="card-text wind-speed"></p>
     <h5 class="card-title bottom-wind-title">Wind Speed</h5>
   </div>
 </div>
@@ -131,10 +131,19 @@
 <div class="col-6 card text-dark text-center humidity-card">
   <img src="./assets/images/rainicon.png" class="card-img" alt="rain icon">
   <div class="card-img-overlay d-flex flex-column justify-content-around"">
-    <p class="card-text humidity-percentage">50%</p>
+    <p id="humidity" class="card-text humidity-percentage"></p>
     <h5 class="card-title bottom-humidity-title">Humidity</h5>
   </div>
 </div>
+</div>
+
+<div class="col-9 row">
+<ul class="list-group">
+  <li id="parcipitation"class="mt-4 extra list-group-item"></li>
+  <li id="feelsLike"class="mt-4 extra list-group-item"></li>
+  <li id="desc"class="mt-4 extra list-group-item"></li>
+  <li id="visibility"class="mt-4 extra list-group-item"></li>
+</ul>
 </div>
 
   </section>
@@ -145,6 +154,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/search.js"></script>
 </body>

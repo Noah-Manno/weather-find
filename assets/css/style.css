@@ -20,6 +20,12 @@ body {
     overflow: hidden;
 }
 
+main {
+    max-width: 1567px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container-fluid {
     display: flex;
     justify-content: space-between !important;
@@ -69,6 +75,7 @@ body {
 .five-day-icons {
     width: 100%;
     height: auto;
+    filter: brightness(150%);
 }
 
 .five-day-date {
@@ -135,4 +142,12 @@ body {
 .bottom-wind-title,
 .bottom-humidity-title {
     font-size: 20px;
+}
+
+.extra {
+    font-size: 25px;
+}
+
+#desc {
+    text-transform: capitalize;
 }
