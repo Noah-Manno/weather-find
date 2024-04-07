@@ -22,7 +22,7 @@ bottomWeatherSection.addEventListener('touchmove', (e) => {
 bottomWeatherSection.addEventListener('touchend', () => {
     if (lastY - startY < -100) {
         bottomWeatherSection.style.transition = 'transform 0.3s ease';
-        bottomWeatherSection.style.transform = 'translateY(-40%)';
+        bottomWeatherSection.style.transform = 'translateY(-500px)';
         isMovedUp = true;
     } else {
         bottomWeatherSection.style.transition = 'transform 0.3s ease';
