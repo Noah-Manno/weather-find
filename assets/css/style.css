@@ -162,3 +162,14 @@ main {
 #desc {
     text-transform: capitalize;
 }
+
+.search {
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search:hover {
+    color: gray;
+}

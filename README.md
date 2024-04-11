@@ -36,6 +36,6 @@ Please refer to the LICENSE in the repo.
 
 ## Deployment 
 
-Github Repository:
+Github Repository: https://github.com/Noah-Manno/weather-find
 
-Deployed Site: 
+Deployed Site: https://noah-manno.github.io/weather-find/

@@ -11,6 +11,23 @@ function handleSearchCitySubmit(event) {
         return;
     }
 
+    let searchHistoryEl = $('#search-history');
+    let newSearch = $(`<li class="search">${searchCityVal}</li>`)
+    newSearch.on('click', function() {
+        let queryString = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCityVal}&appid=${apiKey}&units=imperial`
+        fetchWeatherData(queryString)
+        .then(function(data) {
+            handleUsingData(data);
+        })
+        .catch(function(error) {
+            console.error('Error fetching data:', error);
+        });
+    })
+    searchHistoryEl.append(newSearch);
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    searchHistory.push(searchCityVal);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+
     const queryString = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCityVal}&appid=${apiKey}&units=imperial`
     console.log(queryString)
 
