@@ -39,3 +39,5 @@ Please refer to the LICENSE in the repo.
 Github Repository: https://github.com/Noah-Manno/weather-find
 
 Deployed Site: https://noah-manno.github.io/weather-find/
+
+![project screenshot](./assets/images/projectscreenshot.png "project screenshot")
