@@ -12,22 +12,37 @@ function handleSearchCitySubmit(event) {
     }
 
     let searchHistoryEl = $('#search-history');
-    let newSearch = $(`<li class="search">${searchCityVal}</li>`)
-    newSearch.on('click', function() {
-        let queryString = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCityVal}&appid=${apiKey}&units=imperial`
-        fetchWeatherData(queryString)
-        .then(function(data) {
-            handleUsingData(data);
-        })
-        .catch(function(error) {
-            console.error('Error fetching data:', error);
-        });
-    })
-    searchHistoryEl.append(newSearch);
+    // Check if the word already exists
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    searchHistory.push(searchCityVal);
-    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
-
+    
+    if (!searchHistory.includes(searchCityVal)) {
+        // Create a new search item
+        let newSearch = $(`<li class="search">${searchCityVal}</li>`);
+    
+        // Add click event to the new search item
+        newSearch.on('click', function() {
+            let queryString = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCityVal}&appid=${apiKey}&units=imperial`;
+    
+            // Fetch weather data and handle it
+            fetchWeatherData(queryString)
+                .then(function(data) {
+                    handleUsingData(data);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    
+        // Append the new search item to the search history element
+        searchHistoryEl.append(newSearch);
+    
+        // Update the search history in local storage
+        searchHistory.push(searchCityVal);
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    } else {
+        console.log('Word already exists in search history');
+    }
+    
     const queryString = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCityVal}&appid=${apiKey}&units=imperial`
     console.log(queryString)
 
