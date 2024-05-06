@@ -85,6 +85,11 @@ main {
     font-size: 14px;
 }
 
+.five-day-wind,
+.five-day-humidity {
+    font-size: 11.5px;
+}
+
 .list-group-item {
     padding: 0;
     margin: 0;
@@ -163,11 +168,17 @@ main {
     text-transform: capitalize;
 }
 
+#search-history {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .search {
-    font-size: 25px;
+    font-size: 13px;
     text-transform: capitalize;
     margin-left: 10px;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .search:hover {

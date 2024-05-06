@@ -1,4 +1,5 @@
 const searchCityForm = document.getElementById('searchCityForm')
+let searchHistoryEl = $('#search-history');
 
 function handleSearchCitySubmit(event) {
     event.preventDefault();
@@ -11,7 +12,6 @@ function handleSearchCitySubmit(event) {
         return;
     }
 
-    let searchHistoryEl = $('#search-history');
     // Check if the word already exists
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
     
@@ -75,18 +75,28 @@ function handleUsingData(data) {
     const oneicon = document.getElementById('one-icon');
     const onedate = document.getElementById('one-date');
     const onetemp = document.getElementById('one-temp');
+    const onewind = document.getElementById('one-wind');
+    const onehumidity = document.getElementById('one-humidity');
     const twoicon = document.getElementById('two-icon');
     const twodate = document.getElementById('two-date');
     const twotemp = document.getElementById('two-temp');
+    const twowind = document.getElementById('two-wind');
+    const twohumidity = document.getElementById('two-humidity');
     const threeicon = document.getElementById('three-icon');
     const threedate = document.getElementById('three-date');
     const threetemp = document.getElementById('three-temp');
+    const threewind = document.getElementById('three-wind');
+    const threehumidity = document.getElementById('three-humidity');
     const fouricon = document.getElementById('four-icon');
     const fourdate = document.getElementById('four-date');
     const fourtemp = document.getElementById('four-temp');
+    const fourwind = document.getElementById('four-wind');
+    const fourhumidity = document.getElementById('four-humidity');
     const fiveicon = document.getElementById('five-icon');
     const fivedate = document.getElementById('five-date');
     const fivetemp = document.getElementById('five-temp');
+    const fivewind = document.getElementById('five-wind');
+    const fivehumidity = document.getElementById('five-humidity');
     const bottomCityName = document.getElementById('bottomCityName');
     const bottomDate = document.getElementById('bottomDate');
     const windSpeed = document.getElementById('windSpeed');
@@ -111,22 +121,32 @@ function handleUsingData(data) {
     oneicon.src = `https://openweathermap.org/img/wn/${data.list[4].weather[0].icon}@2x.png`;
     onedate.textContent = dayjs(data.list[4].dt_txt).format('MM/DD/YY');
     onetemp.textContent = `${Math.round(data.list[4].main.temp)}°F`;
+    onewind.textContent = `Wind: ${Math.round(data.list[0].wind.speed)} Mph`;
+    onehumidity.textContent = `Humidity: ${data.list[0].main.humidity}%`
 
     twoicon.src = `https://openweathermap.org/img/wn/${data.list[12].weather[0].icon}@2x.png`;
     twodate.textContent = dayjs(data.list[12].dt_txt).format('MM/DD/YY');
     twotemp.textContent = `${Math.round(data.list[12].main.temp)}°F`;
+    twowind.textContent = `Wind: ${Math.round(data.list[0].wind.speed)} Mph`;
+    twohumidity.textContent = `Humidity: ${data.list[0].main.humidity}%`
 
     threeicon.src = `https://openweathermap.org/img/wn/${data.list[20].weather[0].icon}@2x.png`;
     threedate.textContent = dayjs(data.list[20].dt_txt).format('MM/DD/YY');
     threetemp.textContent = `${Math.round(data.list[20].main.temp)}°F`;
+    threewind.textContent = `Wind: ${Math.round(data.list[0].wind.speed)} Mph`;
+    threehumidity.textContent = `Humidity: ${data.list[0].main.humidity}%`
 
     fouricon.src = `https://openweathermap.org/img/wn/${data.list[28].weather[0].icon}@2x.png`;
     fourdate.textContent = dayjs(data.list[28].dt_txt).format('MM/DD/YY');
     fourtemp.textContent = `${Math.round(data.list[28].main.temp)}°F`;
+    fourwind.textContent = `Wind: ${Math.round(data.list[0].wind.speed)} Mph`;
+    fourhumidity.textContent = `Humidity: ${data.list[0].main.humidity}%`
 
     fiveicon.src = `https://openweathermap.org/img/wn/${data.list[36].weather[0].icon}@2x.png`;
     fivedate.textContent = dayjs(data.list[36].dt_txt).format('MM/DD/YY');
     fivetemp.textContent = `${Math.round(data.list[36].main.temp)}°F`;
+    fivewind.textContent = `Wind: ${Math.round(data.list[0].wind.speed)} Mph`;
+    fivehumidity.textContent = `Humidity: ${data.list[0].main.humidity}%`
 
     bottomDate.textContent = dayjs(data.list[0].dt_txt).format('MM/DD/YY');
     windSpeed.textContent = `${Math.round(data.list[0].wind.speed)} Mph`;
@@ -140,6 +160,14 @@ function handleUsingData(data) {
 searchCityForm.addEventListener('submit', handleSearchCitySubmit);
 
 function onload() {
+
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    if (searchHistory) {
+        searchHistory.forEach(city => {
+            let newSearchListItem = $(`<li class="search">${city}</li>`)
+            searchHistoryEl.append(newSearchListItem);
+        });
+    }
 
 const apiKey = "425a1e6fae9ebc735167fa20a12202a3"
 const queryString = `https://api.openweathermap.org/data/2.5/forecast?q=New York&appid=${apiKey}&units=imperial`
